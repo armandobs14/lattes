@@ -1,0 +1,545 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE Ontology [
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY xml "http://www.w3.org/XML/1998/namespace" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+]>
+
+
+<Ontology xmlns="http://www.w3.org/2002/07/owl#"
+     xml:base="http://www.semanticweb.org/armando/ontologies/2014/5/untitled-ontology-33"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     ontologyIRI="http://www.semanticweb.org/armando/ontologies/2014/5/untitled-ontology-33">
+    <Prefix name="" IRI="http://www.w3.org/2002/07/owl#"/>
+    <Prefix name="owl" IRI="http://www.w3.org/2002/07/owl#"/>
+    <Prefix name="rdf" IRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+    <Prefix name="xsd" IRI="http://www.w3.org/2001/XMLSchema#"/>
+    <Prefix name="rdfs" IRI="http://www.w3.org/2000/01/rdf-schema#"/>
+    <Import>http://ebiquity.umbc.edu/ontology/publication.owl#publication</Import>
+    <Import>http://xmlns.com/foaf/0.1/</Import>
+    <Import>file:/home/armando/Desktop/ontologies/swrc_v0.3.owl</Import>
+    <Declaration>
+        <Class IRI="#AcademicDegree"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#AcamdicMsc"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#AdditionalTraining"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Address"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Advice"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Afterword"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Area"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#ArtisticOrCulturalProduction"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#BasicEducation"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#BibliographicalProduction"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Citations"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Courseware"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#DoctoralDegree"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Editing"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Expertise"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#ExtensionProject"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Foreword"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Formation"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#FreeTeaching"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Graduation"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#HighArea"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#HighSchool"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Improvement"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#IndustrialDesign"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#IntegratedCircuit"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#IsiCitations"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#MastersDegree"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#MedicineResidenceSpecialization"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Music"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#MusicalScore"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#NonAcademicDegree"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#OtherArtisticalOrCulturalProductions"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#OtherCitations"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#OtherProjects"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#OtherTechnicalPublication"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#PaperPresentation"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Patent"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#PerformingArts"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#PostDoctoral"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Process"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Production"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Products"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#ProfessionalAddress"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#ProfessionalMsc"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#ProfetionalOperation"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Records"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#RegisteredSoftware"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#ResearchArea"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#ResearchProject"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Researcher"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#ResidentialAddress"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#ScieloCitations"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#ScopusCitations"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#ShortCourse"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Software"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Specialization"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#SponsoringInstitution"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#SubArea"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Talk"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#TechnicalProduction"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#TechnicalWork"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#TechnologicalDevelopmentProject"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#TechnologicalExtension"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#TecnicalCollege"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#TradeMark"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Translation"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#UnregisteredSoftware"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#VisualArts"/>
+    </Declaration>
+    <EquivalentClasses>
+        <Class IRI="http://ebiquity.umbc.edu/ontology/person.owl#Person"/>
+        <Class IRI="http://swrc.ontoware.org/ontology#Person"/>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="http://ebiquity.umbc.edu/ontology/person.owl#Person"/>
+        <Class IRI="http://www.w3.org/2000/10/swap/pim/contact#Person"/>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="http://ebiquity.umbc.edu/ontology/person.owl#Person"/>
+        <Class IRI="http://xmlns.com/foaf/0.1/Person"/>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="http://ebiquity.umbc.edu/ontology/project.owl#Project"/>
+        <Class IRI="http://swrc.ontoware.org/ontology#Project"/>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="http://ebiquity.umbc.edu/ontology/project.owl#Project"/>
+        <Class IRI="http://xmlns.com/foaf/0.1/Project"/>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="http://ebiquity.umbc.edu/ontology/publication.owl#Article"/>
+        <Class IRI="http://swrc.ontoware.org/ontology#Article"/>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="http://ebiquity.umbc.edu/ontology/publication.owl#Publication"/>
+        <Class IRI="http://swrc.ontoware.org/ontology#Publication"/>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="http://swrc.ontoware.org/ontology#Organization"/>
+        <Class IRI="http://xmlns.com/foaf/0.1/Organization"/>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="http://swrc.ontoware.org/ontology#Person"/>
+        <Class IRI="http://xmlns.com/foaf/0.1/Person"/>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="http://swrc.ontoware.org/ontology#Publication"/>
+        <Class IRI="#BibliographicalProduction"/>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="http://www.w3.org/2000/10/swap/pim/contact#Person"/>
+        <Class IRI="http://xmlns.com/foaf/0.1/Person"/>
+    </EquivalentClasses>
+    <SubClassOf>
+        <Class IRI="#AcademicDegree"/>
+        <Class IRI="#Formation"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#AcamdicMsc"/>
+        <Class IRI="#MastersDegree"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#AdditionalTraining"/>
+        <Class IRI="#NonAcademicDegree"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Advice"/>
+        <Class IRI="#TechnicalProduction"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Afterword"/>
+        <Class IRI="http://swrc.ontoware.org/ontology#Publication"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Area"/>
+        <Class IRI="#HighArea"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#ArtisticOrCulturalProduction"/>
+        <Class IRI="#Production"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#BasicEducation"/>
+        <Class IRI="#AcademicDegree"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#BibliographicalProduction"/>
+        <Class IRI="#Production"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Courseware"/>
+        <Class IRI="#TechnicalProduction"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#DoctoralDegree"/>
+        <Class IRI="#AcademicDegree"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Editing"/>
+        <Class IRI="#TechnicalProduction"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Expertise"/>
+        <Class IRI="#SubArea"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#ExtensionProject"/>
+        <Class IRI="http://xmlns.com/foaf/0.1/Project"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Foreword"/>
+        <Class IRI="http://swrc.ontoware.org/ontology#Publication"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#FreeTeaching"/>
+        <Class IRI="#NonAcademicDegree"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Graduation"/>
+        <Class IRI="#AcademicDegree"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#HighArea"/>
+        <Class IRI="#ResearchArea"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#HighSchool"/>
+        <Class IRI="#AcademicDegree"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Improvement"/>
+        <Class IRI="#AcademicDegree"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#IndustrialDesign"/>
+        <Class IRI="#Records"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#IntegratedCircuit"/>
+        <Class IRI="#Records"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#IsiCitations"/>
+        <Class IRI="#Citations"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#MastersDegree"/>
+        <Class IRI="#AcademicDegree"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#MedicineResidenceSpecialization"/>
+        <Class IRI="#Specialization"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Music"/>
+        <Class IRI="#ArtisticOrCulturalProduction"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#MusicalScore"/>
+        <Class IRI="http://swrc.ontoware.org/ontology#Publication"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#NonAcademicDegree"/>
+        <Class IRI="#Formation"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#OtherArtisticalOrCulturalProductions"/>
+        <Class IRI="#ArtisticOrCulturalProduction"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#OtherCitations"/>
+        <Class IRI="#Citations"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#OtherProjects"/>
+        <Class IRI="http://xmlns.com/foaf/0.1/Project"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#OtherTechnicalPublication"/>
+        <Class IRI="#TechnicalProduction"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#PaperPresentation"/>
+        <Class IRI="http://swrc.ontoware.org/ontology#Publication"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#PerformingArts"/>
+        <Class IRI="#ArtisticOrCulturalProduction"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#PostDoctoral"/>
+        <Class IRI="#NonAcademicDegree"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Process"/>
+        <Class IRI="#TechnicalProduction"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Products"/>
+        <Class IRI="#TechnicalProduction"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#ProfessionalAddress"/>
+        <Class IRI="#Address"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#ProfessionalMsc"/>
+        <Class IRI="#MastersDegree"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#RegisteredSoftware"/>
+        <Class IRI="#Records"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#RegisteredSoftware"/>
+        <Class IRI="#Software"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#ResearchProject"/>
+        <Class IRI="http://xmlns.com/foaf/0.1/Project"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#ResidentialAddress"/>
+        <Class IRI="#Address"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#ScieloCitations"/>
+        <Class IRI="#Citations"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#ScopusCitations"/>
+        <Class IRI="#Citations"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#ShortCourse"/>
+        <Class IRI="#TechnicalProduction"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Software"/>
+        <Class IRI="#TechnicalProduction"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Specialization"/>
+        <Class IRI="#AcademicDegree"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#SponsoringInstitution"/>
+        <Class IRI="http://swrc.ontoware.org/ontology#Organization"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#SubArea"/>
+        <Class IRI="#Area"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Talk"/>
+        <Class IRI="http://swrc.ontoware.org/ontology#Publication"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#TechnicalProduction"/>
+        <Class IRI="#Production"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#TechnicalWork"/>
+        <Class IRI="#TechnicalProduction"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#TechnologicalDevelopmentProject"/>
+        <Class IRI="http://xmlns.com/foaf/0.1/Project"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#TechnologicalExtension"/>
+        <Class IRI="#TechnicalProduction"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#TecnicalCollege"/>
+        <Class IRI="#AcademicDegree"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#TradeMark"/>
+        <Class IRI="#Records"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Translation"/>
+        <Class IRI="http://swrc.ontoware.org/ontology#Publication"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#UnregisteredSoftware"/>
+        <Class IRI="#Software"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#VisualArts"/>
+        <Class IRI="#ArtisticOrCulturalProduction"/>
+    </SubClassOf>
+    <DisjointClasses>
+        <Class IRI="#Courseware"/>
+        <Class IRI="#ShortCourse"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#IndustrialDesign"/>
+        <Class IRI="#IntegratedCircuit"/>
+        <Class IRI="#TradeMark"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#IsiCitations"/>
+        <Class IRI="#OtherCitations"/>
+        <Class IRI="#ScieloCitations"/>
+        <Class IRI="#ScopusCitations"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#Music"/>
+        <Class IRI="#OtherArtisticalOrCulturalProductions"/>
+        <Class IRI="#PerformingArts"/>
+        <Class IRI="#VisualArts"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#RegisteredSoftware"/>
+        <Class IRI="#UnregisteredSoftware"/>
+    </DisjointClasses>
+</Ontology>
+
+
+
+<!-- Generated by the OWL API (version 3.5.0) http://owlapi.sourceforge.net -->
+
