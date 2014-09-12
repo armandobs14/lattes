@@ -11,18 +11,18 @@
 
 <Ontology xmlns="http://www.w3.org/2002/07/owl#"
      xml:base="http://www.semanticweb.org/armando/ontologies/2014/5/untitled-ontology-33"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
      xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
      xmlns:xml="http://www.w3.org/XML/1998/namespace"
-     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
-     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
      ontologyIRI="http://www.semanticweb.org/armando/ontologies/2014/5/untitled-ontology-33">
     <Prefix name="" IRI="http://www.w3.org/2002/07/owl#"/>
     <Prefix name="owl" IRI="http://www.w3.org/2002/07/owl#"/>
     <Prefix name="rdf" IRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
     <Prefix name="xsd" IRI="http://www.w3.org/2001/XMLSchema#"/>
     <Prefix name="rdfs" IRI="http://www.w3.org/2000/01/rdf-schema#"/>
-    <Import>http://ebiquity.umbc.edu/ontology/publication.owl#publication</Import>
     <Import>http://xmlns.com/foaf/0.1/</Import>
+    <Import>http://ebiquity.umbc.edu/ontology/publication.owl#publication</Import>
     <Import>file:/home/armando/Desktop/ontologies/swrc_v0.3.owl</Import>
     <Declaration>
         <Class IRI="#AcademicDegree"/>
@@ -103,10 +103,10 @@
         <Class IRI="#HighSchool"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#Improvement"/>
+        <Class IRI="#IdentityCard"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#IndentityCard"/>
+        <Class IRI="#Improvement"/>
     </Declaration>
     <Declaration>
         <Class IRI="#IndustrialDesign"/>
@@ -238,6 +238,9 @@
         <Class IRI="#Talk"/>
     </Declaration>
     <Declaration>
+        <Class IRI="#TechnicalCollege"/>
+    </Declaration>
+    <Declaration>
         <Class IRI="#TechnicalProduction"/>
     </Declaration>
     <Declaration>
@@ -245,9 +248,6 @@
     </Declaration>
     <Declaration>
         <Class IRI="#TechnologicalExtension"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="#TecnicalCollege"/>
     </Declaration>
     <Declaration>
         <Class IRI="#TradeMark"/>
@@ -338,9 +338,6 @@
     </Declaration>
     <Declaration>
         <DataProperty IRI="#authorOfReferenceWork"/>
-    </Declaration>
-    <Declaration>
-        <DataProperty IRI="#authorOrEditor"/>
     </Declaration>
     <Declaration>
         <DataProperty IRI="#authorParticipation"/>
@@ -789,12 +786,12 @@
         <Class IRI="#BasicFormation"/>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="#Improvement"/>
-        <Class IRI="#LatoSensu"/>
+        <Class IRI="#IdentityCard"/>
+        <Class IRI="http://xmlns.com/foaf/0.1/PersonalProfileDocument"/>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="#IndentityCard"/>
-        <Class IRI="http://xmlns.com/foaf/0.1/PersonalProfileDocument"/>
+        <Class IRI="#Improvement"/>
+        <Class IRI="#LatoSensu"/>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#IndustrialDesign"/>
@@ -945,6 +942,10 @@
         <Class IRI="http://swrc.ontoware.org/ontology#Publication"/>
     </SubClassOf>
     <SubClassOf>
+        <Class IRI="#TechnicalCollege"/>
+        <Class IRI="#AcademicDegree"/>
+    </SubClassOf>
+    <SubClassOf>
         <Class IRI="#TechnicalProduction"/>
         <Class IRI="#Production"/>
     </SubClassOf>
@@ -955,10 +956,6 @@
     <SubClassOf>
         <Class IRI="#TechnologicalExtension"/>
         <Class IRI="#TechnicalProduction"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="#TecnicalCollege"/>
-        <Class IRI="#AcademicDegree"/>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#TradeMark"/>
@@ -982,7 +979,7 @@
     </SubClassOf>
     <DisjointClasses>
         <Class IRI="#BornData"/>
-        <Class IRI="#IndentityCard"/>
+        <Class IRI="#IdentityCard"/>
         <Class IRI="#Passport"/>
     </DisjointClasses>
     <DisjointClasses>
@@ -1040,35 +1037,32 @@
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
         <ObjectProperty IRI="#hasAuthor"/>
-        <Class IRI="#Production"/>
+        <ObjectUnionOf>
+            <Class IRI="http://swrc.ontoware.org/ontology#Book"/>
+            <Class IRI="http://swrc.ontoware.org/ontology#InBook"/>
+            <Class IRI="#Afterword"/>
+            <Class IRI="#Foreword"/>
+            <Class IRI="#Production"/>
+            <Class IRI="#Translation"/>
+        </ObjectUnionOf>
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
         <ObjectProperty IRI="#hasCourse"/>
-        <Class IRI="#AdditionalTraining"/>
-    </ObjectPropertyDomain>
-    <ObjectPropertyDomain>
-        <ObjectProperty IRI="#hasCourse"/>
-        <Class IRI="#Graduation"/>
-    </ObjectPropertyDomain>
-    <ObjectPropertyDomain>
-        <ObjectProperty IRI="#hasCourse"/>
-        <Class IRI="#Improvement"/>
-    </ObjectPropertyDomain>
-    <ObjectPropertyDomain>
-        <ObjectProperty IRI="#hasCourse"/>
-        <Class IRI="#Specialization"/>
-    </ObjectPropertyDomain>
-    <ObjectPropertyDomain>
-        <ObjectProperty IRI="#hasCourse"/>
-        <Class IRI="#StrictoSensu"/>
+        <ObjectUnionOf>
+            <Class IRI="#AdditionalTraining"/>
+            <Class IRI="#Graduation"/>
+            <Class IRI="#Improvement"/>
+            <Class IRI="#LatoSensu"/>
+            <Class IRI="#Specialization"/>
+            <Class IRI="#StrictoSensu"/>
+        </ObjectUnionOf>
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
         <ObjectProperty IRI="#hasInstitution"/>
-        <Class IRI="http://ebiquity.umbc.edu/ontology/project.owl#Project"/>
-    </ObjectPropertyDomain>
-    <ObjectPropertyDomain>
-        <ObjectProperty IRI="#hasInstitution"/>
-        <Class IRI="#Formation"/>
+        <ObjectUnionOf>
+            <Class IRI="#Formation"/>
+            <Class IRI="http://xmlns.com/foaf/0.1/Project"/>
+        </ObjectUnionOf>
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
         <ObjectProperty IRI="#hasInstitutionUnit"/>
@@ -1104,23 +1098,14 @@
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
         <ObjectProperty IRI="#hasResearchArea"/>
-        <Class IRI="#FreeTeaching"/>
-    </ObjectPropertyDomain>
-    <ObjectPropertyDomain>
-        <ObjectProperty IRI="#hasResearchArea"/>
-        <Class IRI="#PostDoctoral"/>
-    </ObjectPropertyDomain>
-    <ObjectPropertyDomain>
-        <ObjectProperty IRI="#hasResearchArea"/>
-        <Class IRI="#Production"/>
-    </ObjectPropertyDomain>
-    <ObjectPropertyDomain>
-        <ObjectProperty IRI="#hasResearchArea"/>
-        <Class IRI="#Specialization"/>
-    </ObjectPropertyDomain>
-    <ObjectPropertyDomain>
-        <ObjectProperty IRI="#hasResearchArea"/>
-        <Class IRI="#StrictoSensu"/>
+        <ObjectUnionOf>
+            <Class IRI="#FreeTeaching"/>
+            <Class IRI="#LatoSensu"/>
+            <Class IRI="#PostDoctoral"/>
+            <Class IRI="#Production"/>
+            <Class IRI="#Specialization"/>
+            <Class IRI="#StrictoSensu"/>
+        </ObjectUnionOf>
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
         <ObjectProperty IRI="#hasResidentialAddress"/>
@@ -1128,99 +1113,42 @@
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
         <ObjectProperty IRI="#hasSection"/>
-        <Class IRI="#FreeTeaching"/>
-    </ObjectPropertyDomain>
-    <ObjectPropertyDomain>
-        <ObjectProperty IRI="#hasSection"/>
-        <Class IRI="#Production"/>
-    </ObjectPropertyDomain>
-    <ObjectPropertyDomain>
-        <ObjectProperty IRI="#hasSection"/>
-        <Class IRI="#Specialization"/>
-    </ObjectPropertyDomain>
-    <ObjectPropertyDomain>
-        <ObjectProperty IRI="#hasSection"/>
-        <Class IRI="#StrictoSensu"/>
+        <ObjectUnionOf>
+            <Class IRI="#FreeTeaching"/>
+            <Class IRI="#Production"/>
+            <Class IRI="#Specialization"/>
+            <Class IRI="#StrictoSensu"/>
+        </ObjectUnionOf>
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
         <ObjectProperty IRI="#hasSponsoringInstitution"/>
-        <Class IRI="http://ebiquity.umbc.edu/ontology/project.owl#Project"/>
-    </ObjectPropertyDomain>
-    <ObjectPropertyDomain>
-        <ObjectProperty IRI="#hasSponsoringInstitution"/>
-        <Class IRI="#AdviceOrConsultancy"/>
-    </ObjectPropertyDomain>
-    <ObjectPropertyDomain>
-        <ObjectProperty IRI="#hasSponsoringInstitution"/>
-        <Class IRI="#ArtisticOrCulturalProduction"/>
-    </ObjectPropertyDomain>
-    <ObjectPropertyDomain>
-        <ObjectProperty IRI="#hasSponsoringInstitution"/>
-        <Class IRI="#Editing"/>
-    </ObjectPropertyDomain>
-    <ObjectPropertyDomain>
-        <ObjectProperty IRI="#hasSponsoringInstitution"/>
-        <Class IRI="#Graduation"/>
-    </ObjectPropertyDomain>
-    <ObjectPropertyDomain>
-        <ObjectProperty IRI="#hasSponsoringInstitution"/>
-        <Class IRI="#LatoSensu"/>
-    </ObjectPropertyDomain>
-    <ObjectPropertyDomain>
-        <ObjectProperty IRI="#hasSponsoringInstitution"/>
-        <Class IRI="#OtherTechnicalPublication"/>
-    </ObjectPropertyDomain>
-    <ObjectPropertyDomain>
-        <ObjectProperty IRI="#hasSponsoringInstitution"/>
-        <Class IRI="#PostDoctoral"/>
-    </ObjectPropertyDomain>
-    <ObjectPropertyDomain>
-        <ObjectProperty IRI="#hasSponsoringInstitution"/>
-        <Class IRI="#ProcessOrTechnique"/>
-    </ObjectPropertyDomain>
-    <ObjectPropertyDomain>
-        <ObjectProperty IRI="#hasSponsoringInstitution"/>
-        <Class IRI="#Product"/>
-    </ObjectPropertyDomain>
-    <ObjectPropertyDomain>
-        <ObjectProperty IRI="#hasSponsoringInstitution"/>
-        <Class IRI="#ResearchReport"/>
-    </ObjectPropertyDomain>
-    <ObjectPropertyDomain>
-        <ObjectProperty IRI="#hasSponsoringInstitution"/>
-        <Class IRI="#ShortCourse"/>
-    </ObjectPropertyDomain>
-    <ObjectPropertyDomain>
-        <ObjectProperty IRI="#hasSponsoringInstitution"/>
-        <Class IRI="#StrictoSensu"/>
-    </ObjectPropertyDomain>
-    <ObjectPropertyDomain>
-        <ObjectProperty IRI="#hasSponsoringInstitution"/>
-        <Class IRI="#TechnicalWork"/>
-    </ObjectPropertyDomain>
-    <ObjectPropertyDomain>
-        <ObjectProperty IRI="#hasSponsoringInstitution"/>
-        <Class IRI="#TechnologicalExtension"/>
-    </ObjectPropertyDomain>
-    <ObjectPropertyDomain>
-        <ObjectProperty IRI="#hasSponsoringInstitution"/>
-        <Class IRI="#TecnicalCollege"/>
-    </ObjectPropertyDomain>
-    <ObjectPropertyDomain>
-        <ObjectProperty IRI="#hasSponsoringInstitution"/>
-        <Class IRI="#UnregisteredSoftware"/>
+        <ObjectUnionOf>
+            <Class IRI="#AdviceOrConsultancy"/>
+            <Class IRI="#ArtisticOrCulturalProduction"/>
+            <Class IRI="#Editing"/>
+            <Class IRI="#Graduation"/>
+            <Class IRI="#LatoSensu"/>
+            <Class IRI="#OtherTechnicalPublication"/>
+            <Class IRI="#PostDoctoral"/>
+            <Class IRI="#ProcessOrTechnique"/>
+            <Class IRI="#Product"/>
+            <Class IRI="#ResearchReport"/>
+            <Class IRI="#ShortCourse"/>
+            <Class IRI="#StrictoSensu"/>
+            <Class IRI="#TechnicalCollege"/>
+            <Class IRI="#TechnicalWork"/>
+            <Class IRI="#TechnologicalExtension"/>
+            <Class IRI="#UnregisteredSoftware"/>
+            <Class IRI="http://xmlns.com/foaf/0.1/Project"/>
+        </ObjectUnionOf>
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
         <ObjectProperty IRI="#hasSupervisor"/>
-        <Class IRI="#Graduation"/>
-    </ObjectPropertyDomain>
-    <ObjectPropertyDomain>
-        <ObjectProperty IRI="#hasSupervisor"/>
-        <Class IRI="#Specialization"/>
-    </ObjectPropertyDomain>
-    <ObjectPropertyDomain>
-        <ObjectProperty IRI="#hasSupervisor"/>
-        <Class IRI="#StrictoSensu"/>
+        <ObjectUnionOf>
+            <Class IRI="#Graduation"/>
+            <Class IRI="#Specialization"/>
+            <Class IRI="#StrictoSensu"/>
+        </ObjectUnionOf>
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
         <ObjectProperty IRI="#hasTeam"/>
@@ -1316,11 +1244,10 @@
     </ObjectPropertyRange>
     <ObjectPropertyRange>
         <ObjectProperty IRI="#hasTitular"/>
-        <Class IRI="http://swrc.ontoware.org/ontology#Organization"/>
-    </ObjectPropertyRange>
-    <ObjectPropertyRange>
-        <ObjectProperty IRI="#hasTitular"/>
-        <Class IRI="#Researcher"/>
+        <ObjectUnionOf>
+            <Class IRI="#Researcher"/>
+            <Class IRI="http://xmlns.com/foaf/0.1/Organization"/>
+        </ObjectUnionOf>
     </ObjectPropertyRange>
     <ObjectPropertyRange>
         <ObjectProperty IRI="#isPartOf"/>
@@ -1503,7 +1430,31 @@
         <DataProperty IRI="#referenceWork"/>
     </SubDataPropertyOf>
     <FunctionalDataProperty>
+        <DataProperty IRI="#availability"/>
+    </FunctionalDataProperty>
+    <FunctionalDataProperty>
+        <DataProperty IRI="#bookType"/>
+    </FunctionalDataProperty>
+    <FunctionalDataProperty>
+        <DataProperty IRI="#catalogNumber"/>
+    </FunctionalDataProperty>
+    <FunctionalDataProperty>
+        <DataProperty IRI="#courseStatus"/>
+    </FunctionalDataProperty>
+    <FunctionalDataProperty>
         <DataProperty IRI="#cpf"/>
+    </FunctionalDataProperty>
+    <FunctionalDataProperty>
+        <DataProperty IRI="#doctoralType"/>
+    </FunctionalDataProperty>
+    <FunctionalDataProperty>
+        <DataProperty IRI="#generalType"/>
+    </FunctionalDataProperty>
+    <FunctionalDataProperty>
+        <DataProperty IRI="#projectStatuts"/>
+    </FunctionalDataProperty>
+    <FunctionalDataProperty>
+        <DataProperty IRI="#projectType"/>
     </FunctionalDataProperty>
     <FunctionalDataProperty>
         <DataProperty IRI="#sexualGender"/>
@@ -1513,87 +1464,29 @@
     </FunctionalDataProperty>
     <DataPropertyDomain>
         <DataProperty IRI="http://swrc.ontoware.org/ontology#homepage"/>
-        <Class IRI="http://swrc.ontoware.org/ontology#Book"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="http://swrc.ontoware.org/ontology#homepage"/>
-        <Class IRI="http://swrc.ontoware.org/ontology#InBook"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="http://swrc.ontoware.org/ontology#homepage"/>
-        <Class IRI="http://swrc.ontoware.org/ontology#InProceedings"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="http://swrc.ontoware.org/ontology#homepage"/>
-        <Class IRI="http://swrc.ontoware.org/ontology#Report"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="http://swrc.ontoware.org/ontology#homepage"/>
-        <Class IRI="#AdviceOrConsultancy"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="http://swrc.ontoware.org/ontology#homepage"/>
-        <Class IRI="#Afterword"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="http://swrc.ontoware.org/ontology#homepage"/>
-        <Class IRI="#ArtisticOrCulturalProduction"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="http://swrc.ontoware.org/ontology#homepage"/>
-        <Class IRI="#Courseware"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="http://swrc.ontoware.org/ontology#homepage"/>
-        <Class IRI="#Editing"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="http://swrc.ontoware.org/ontology#homepage"/>
-        <Class IRI="#Foreword"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="http://swrc.ontoware.org/ontology#homepage"/>
-        <Class IRI="#Magazine"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="http://swrc.ontoware.org/ontology#homepage"/>
-        <Class IRI="#MusicalScore"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="http://swrc.ontoware.org/ontology#homepage"/>
-        <Class IRI="#OtherPublication"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="http://swrc.ontoware.org/ontology#homepage"/>
-        <Class IRI="#PaperPresentation"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="http://swrc.ontoware.org/ontology#homepage"/>
-        <Class IRI="#ProcessOrTechnique"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="http://swrc.ontoware.org/ontology#homepage"/>
-        <Class IRI="#Product"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="http://swrc.ontoware.org/ontology#homepage"/>
-        <Class IRI="#PublishedArticle"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="http://swrc.ontoware.org/ontology#homepage"/>
-        <Class IRI="#Talk"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="http://swrc.ontoware.org/ontology#homepage"/>
-        <Class IRI="#TechnicalWork"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="http://swrc.ontoware.org/ontology#homepage"/>
-        <Class IRI="#TechnologicalExtension"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="http://swrc.ontoware.org/ontology#homepage"/>
-        <Class IRI="#Translation"/>
+        <ObjectUnionOf>
+            <Class IRI="http://swrc.ontoware.org/ontology#Book"/>
+            <Class IRI="http://swrc.ontoware.org/ontology#InBook"/>
+            <Class IRI="http://swrc.ontoware.org/ontology#InProceedings"/>
+            <Class IRI="http://swrc.ontoware.org/ontology#Report"/>
+            <Class IRI="#AdviceOrConsultancy"/>
+            <Class IRI="#Afterword"/>
+            <Class IRI="#ArtisticOrCulturalProduction"/>
+            <Class IRI="#Courseware"/>
+            <Class IRI="#Editing"/>
+            <Class IRI="#Foreword"/>
+            <Class IRI="#Magazine"/>
+            <Class IRI="#MusicalScore"/>
+            <Class IRI="#OtherPublication"/>
+            <Class IRI="#PaperPresentation"/>
+            <Class IRI="#ProcessOrTechnique"/>
+            <Class IRI="#Product"/>
+            <Class IRI="#PublishedArticle"/>
+            <Class IRI="#Talk"/>
+            <Class IRI="#TechnicalWork"/>
+            <Class IRI="#TechnologicalExtension"/>
+            <Class IRI="#Translation"/>
+        </ObjectUnionOf>
     </DataPropertyDomain>
     <DataPropertyDomain>
         <DataProperty IRI="http://swrc.ontoware.org/ontology#keywords"/>
@@ -1605,11 +1498,16 @@
     </DataPropertyDomain>
     <DataPropertyDomain>
         <DataProperty IRI="http://swrc.ontoware.org/ontology#keywords"/>
-        <Class IRI="#Production"/>
+        <Class IRI="#StrictoSensu"/>
     </DataPropertyDomain>
     <DataPropertyDomain>
         <DataProperty IRI="http://swrc.ontoware.org/ontology#keywords"/>
-        <Class IRI="#StrictoSensu"/>
+        <ObjectUnionOf>
+            <Class IRI="#FreeTeaching"/>
+            <Class IRI="#MedicResidency"/>
+            <Class IRI="#Production"/>
+            <Class IRI="#StrictoSensu"/>
+        </ObjectUnionOf>
     </DataPropertyDomain>
     <DataPropertyDomain>
         <DataProperty IRI="http://swrc.ontoware.org/ontology#name"/>
@@ -1629,43 +1527,23 @@
     </DataPropertyDomain>
     <DataPropertyDomain>
         <DataProperty IRI="http://swrc.ontoware.org/ontology#number"/>
-        <Class IRI="#IndentityCard"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="http://swrc.ontoware.org/ontology#number"/>
-        <Class IRI="#MedicResidency"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="http://swrc.ontoware.org/ontology#number"/>
-        <Class IRI="#Passport"/>
+        <ObjectUnionOf>
+            <Class IRI="#IdentityCard"/>
+            <Class IRI="#MedicResidency"/>
+            <Class IRI="#Passport"/>
+        </ObjectUnionOf>
     </DataPropertyDomain>
     <DataPropertyDomain>
         <DataProperty IRI="http://swrc.ontoware.org/ontology#series"/>
-        <Class IRI="http://swrc.ontoware.org/ontology#Book"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="http://swrc.ontoware.org/ontology#series"/>
-        <Class IRI="http://swrc.ontoware.org/ontology#InBook"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="http://swrc.ontoware.org/ontology#series"/>
-        <Class IRI="http://swrc.ontoware.org/ontology#InProceedings"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="http://swrc.ontoware.org/ontology#series"/>
-        <Class IRI="#Afterword"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="http://swrc.ontoware.org/ontology#series"/>
-        <Class IRI="#Foreword"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="http://swrc.ontoware.org/ontology#series"/>
-        <Class IRI="#PublishedArticle"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="http://swrc.ontoware.org/ontology#series"/>
-        <Class IRI="#Translation"/>
+        <ObjectUnionOf>
+            <Class IRI="http://swrc.ontoware.org/ontology#Book"/>
+            <Class IRI="http://swrc.ontoware.org/ontology#InBook"/>
+            <Class IRI="http://swrc.ontoware.org/ontology#InProceedings"/>
+            <Class IRI="#Afterword"/>
+            <Class IRI="#Foreword"/>
+            <Class IRI="#PublishedArticle"/>
+            <Class IRI="#Translation"/>
+        </ObjectUnionOf>
     </DataPropertyDomain>
     <DataPropertyDomain>
         <DataProperty IRI="http://swrc.ontoware.org/ontology#title"/>
@@ -1673,111 +1551,45 @@
     </DataPropertyDomain>
     <DataPropertyDomain>
         <DataProperty IRI="http://swrc.ontoware.org/ontology#volume"/>
-        <Class IRI="http://swrc.ontoware.org/ontology#Book"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="http://swrc.ontoware.org/ontology#volume"/>
-        <Class IRI="http://swrc.ontoware.org/ontology#InBook"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="http://swrc.ontoware.org/ontology#volume"/>
-        <Class IRI="http://swrc.ontoware.org/ontology#InProceedings"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="http://swrc.ontoware.org/ontology#volume"/>
-        <Class IRI="#Afterword"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="http://swrc.ontoware.org/ontology#volume"/>
-        <Class IRI="#Foreword"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="http://swrc.ontoware.org/ontology#volume"/>
-        <Class IRI="#Magazine"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="http://swrc.ontoware.org/ontology#volume"/>
-        <Class IRI="#PublishedArticle"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="http://swrc.ontoware.org/ontology#volume"/>
-        <Class IRI="#Translation"/>
+        <ObjectUnionOf>
+            <Class IRI="http://swrc.ontoware.org/ontology#Book"/>
+            <Class IRI="http://swrc.ontoware.org/ontology#InBook"/>
+            <Class IRI="http://swrc.ontoware.org/ontology#InProceedings"/>
+            <Class IRI="#Afterword"/>
+            <Class IRI="#Foreword"/>
+            <Class IRI="#Magazine"/>
+            <Class IRI="#PublishedArticle"/>
+            <Class IRI="#Translation"/>
+        </ObjectUnionOf>
     </DataPropertyDomain>
     <DataPropertyDomain>
         <DataProperty IRI="http://swrc.ontoware.org/ontology#year"/>
-        <Class IRI="http://swrc.ontoware.org/ontology#Event"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="http://swrc.ontoware.org/ontology#year"/>
-        <Class IRI="#Production"/>
+        <ObjectUnionOf>
+            <Class IRI="http://swrc.ontoware.org/ontology#Event"/>
+            <Class IRI="#Product"/>
+        </ObjectUnionOf>
     </DataPropertyDomain>
     <DataPropertyDomain>
         <DataProperty IRI="#annalsTitle"/>
         <Class IRI="http://swrc.ontoware.org/ontology#InProceedings"/>
     </DataPropertyDomain>
     <DataPropertyDomain>
-        <DataProperty IRI="#authorOfReferenceWork"/>
-        <Class IRI="#Music"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="#authorOfReferenceWork"/>
-        <Class IRI="#OtherArtisticalOrCulturalProductions"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="#authorOfReferenceWork"/>
-        <Class IRI="#PerformingArts"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="#authorOrEditor"/>
-        <Class IRI="http://swrc.ontoware.org/ontology#Book"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="#authorOrEditor"/>
-        <Class IRI="http://swrc.ontoware.org/ontology#InBook"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="#authorOrEditor"/>
-        <Class IRI="#Afterword"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="#authorOrEditor"/>
-        <Class IRI="#Foreword"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="#authorOrEditor"/>
-        <Class IRI="#Translation"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
         <DataProperty IRI="#authorParticipation"/>
-        <Class IRI="#ArtisticOrCulturalProduction"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="#authorParticipation"/>
-        <Class IRI="#ShortCourse"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="#availability"/>
-        <Class IRI="http://swrc.ontoware.org/ontology#Report"/>
+        <ObjectUnionOf>
+            <Class IRI="#ArtisticOrCulturalProduction"/>
+            <Class IRI="#ShortCourse"/>
+        </ObjectUnionOf>
     </DataPropertyDomain>
     <DataPropertyDomain>
         <DataProperty IRI="#availability"/>
-        <Class IRI="#AdviceOrConsultancy"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="#availability"/>
-        <Class IRI="#ProcessOrTechnique"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="#availability"/>
-        <Class IRI="#Product"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="#availability"/>
-        <Class IRI="#TechnicalWork"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="#availability"/>
-        <Class IRI="#TechnologicalExtension"/>
+        <ObjectUnionOf>
+            <Class IRI="http://swrc.ontoware.org/ontology#Report"/>
+            <Class IRI="#AdviceOrConsultancy"/>
+            <Class IRI="#ProcessOrTechnique"/>
+            <Class IRI="#Product"/>
+            <Class IRI="#TechnicalWork"/>
+            <Class IRI="#TechnologicalExtension"/>
+        </ObjectUnionOf>
     </DataPropertyDomain>
     <DataPropertyDomain>
         <DataProperty IRI="#awards"/>
@@ -1785,11 +1597,10 @@
     </DataPropertyDomain>
     <DataPropertyDomain>
         <DataProperty IRI="#bookType"/>
-        <Class IRI="http://swrc.ontoware.org/ontology#Book"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="#bookType"/>
-        <Class IRI="http://swrc.ontoware.org/ontology#InBook"/>
+        <ObjectUnionOf>
+            <Class IRI="http://swrc.ontoware.org/ontology#Book"/>
+            <Class IRI="http://swrc.ontoware.org/ontology#InBook"/>
+        </ObjectUnionOf>
     </DataPropertyDomain>
     <DataPropertyDomain>
         <DataProperty IRI="#bornDate"/>
@@ -1809,147 +1620,54 @@
     </DataPropertyDomain>
     <DataPropertyDomain>
         <DataProperty IRI="#city"/>
-        <Class IRI="http://swrc.ontoware.org/ontology#Book"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="#city"/>
-        <Class IRI="http://swrc.ontoware.org/ontology#Event"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="#city"/>
-        <Class IRI="http://swrc.ontoware.org/ontology#InBook"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="#city"/>
-        <Class IRI="http://swrc.ontoware.org/ontology#InProceedings"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="#city"/>
-        <Class IRI="#Address"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="#city"/>
-        <Class IRI="#AdviceOrConsultancy"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="#city"/>
-        <Class IRI="#Afterword"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="#city"/>
-        <Class IRI="#Editing"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="#city"/>
-        <Class IRI="#Foreword"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="#city"/>
-        <Class IRI="#Magazine"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="#city"/>
-        <Class IRI="#MusicalScore"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="#city"/>
-        <Class IRI="#OtherPublication"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="#city"/>
-        <Class IRI="#OtherTechnicalPublication"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="#city"/>
-        <Class IRI="#ProcessOrTechnique"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="#city"/>
-        <Class IRI="#Product"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="#city"/>
-        <Class IRI="#TechnicalWork"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="#city"/>
-        <Class IRI="#TechnologicalExtension"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="#city"/>
-        <Class IRI="#Translation"/>
+        <ObjectUnionOf>
+            <Class IRI="http://swrc.ontoware.org/ontology#Book"/>
+            <Class IRI="http://swrc.ontoware.org/ontology#Event"/>
+            <Class IRI="http://swrc.ontoware.org/ontology#InBook"/>
+            <Class IRI="http://swrc.ontoware.org/ontology#InProceedings"/>
+            <Class IRI="#Address"/>
+            <Class IRI="#AdviceOrConsultancy"/>
+            <Class IRI="#Afterword"/>
+            <Class IRI="#Editing"/>
+            <Class IRI="#Foreword"/>
+            <Class IRI="#Magazine"/>
+            <Class IRI="#MusicalScore"/>
+            <Class IRI="#OtherPublication"/>
+            <Class IRI="#OtherTechnicalPublication"/>
+            <Class IRI="#ProcessOrTechnique"/>
+            <Class IRI="#Product"/>
+            <Class IRI="#TechnicalWork"/>
+            <Class IRI="#TechnologicalExtension"/>
+            <Class IRI="#Translation"/>
+        </ObjectUnionOf>
     </DataPropertyDomain>
     <DataPropertyDomain>
         <DataProperty IRI="#country"/>
-        <Class IRI="http://swrc.ontoware.org/ontology#Book"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="#country"/>
-        <Class IRI="http://swrc.ontoware.org/ontology#InBook"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="#country"/>
-        <Class IRI="http://swrc.ontoware.org/ontology#InProceedings"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="#country"/>
-        <Class IRI="#Address"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="#country"/>
-        <Class IRI="#Afterword"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="#country"/>
-        <Class IRI="#ArtisticOrCulturalProduction"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="#country"/>
-        <Class IRI="#Foreword"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="#country"/>
-        <Class IRI="#Magazine"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="#country"/>
-        <Class IRI="#MusicalScore"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="#country"/>
-        <Class IRI="#OtherPublication"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="#country"/>
-        <Class IRI="#PaperPresentation"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="#country"/>
-        <Class IRI="#Passport"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="#country"/>
-        <Class IRI="#Talk"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="#country"/>
-        <Class IRI="#TechnicalProduction"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="#country"/>
-        <Class IRI="#Translation"/>
+        <ObjectUnionOf>
+            <Class IRI="http://swrc.ontoware.org/ontology#Book"/>
+            <Class IRI="http://swrc.ontoware.org/ontology#InBook"/>
+            <Class IRI="http://swrc.ontoware.org/ontology#InProceedings"/>
+            <Class IRI="#Address"/>
+            <Class IRI="#Afterword"/>
+            <Class IRI="#ArtisticOrCulturalProduction"/>
+            <Class IRI="#Foreword"/>
+            <Class IRI="#Magazine"/>
+            <Class IRI="#MusicalScore"/>
+            <Class IRI="#OtherPublication"/>
+            <Class IRI="#PaperPresentation"/>
+            <Class IRI="#Passport"/>
+            <Class IRI="#Talk"/>
+            <Class IRI="#TechnicalProduction"/>
+            <Class IRI="#Translation"/>
+        </ObjectUnionOf>
     </DataPropertyDomain>
     <DataPropertyDomain>
         <DataProperty IRI="#courseStatus"/>
-        <Class IRI="#AcademicDegree"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="#courseStatus"/>
-        <Class IRI="#AdditionalTraining"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="#courseStatus"/>
-        <Class IRI="#PostDoctoral"/>
+        <ObjectUnionOf>
+            <Class IRI="#AcademicDegree"/>
+            <Class IRI="#AdditionalTraining"/>
+            <Class IRI="#PostDoctoral"/>
+        </ObjectUnionOf>
     </DataPropertyDomain>
     <DataPropertyDomain>
         <DataProperty IRI="#cpf"/>
@@ -1968,95 +1686,25 @@
     </DataPropertyDomain>
     <DataPropertyDomain>
         <DataProperty IRI="#disseminationMean"/>
-        <Class IRI="http://swrc.ontoware.org/ontology#Book"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="#disseminationMean"/>
-        <Class IRI="http://swrc.ontoware.org/ontology#InBook"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="#disseminationMean"/>
-        <Class IRI="http://swrc.ontoware.org/ontology#InProceedings"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="#disseminationMean"/>
-        <Class IRI="http://swrc.ontoware.org/ontology#Misc"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="#disseminationMean"/>
-        <Class IRI="#AdviceOrConsultancy"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="#disseminationMean"/>
-        <Class IRI="#Afterword"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="#disseminationMean"/>
-        <Class IRI="#ArtisticOrCulturalProduction"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="#disseminationMean"/>
-        <Class IRI="#Courseware"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="#disseminationMean"/>
-        <Class IRI="#Editing"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="#disseminationMean"/>
-        <Class IRI="#Foreword"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="#disseminationMean"/>
-        <Class IRI="#Magazine"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="#disseminationMean"/>
-        <Class IRI="#MusicalScore"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="#disseminationMean"/>
-        <Class IRI="#OtherPublication"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="#disseminationMean"/>
-        <Class IRI="#OtherTechnicalPublication"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="#disseminationMean"/>
-        <Class IRI="#PaperPresentation"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="#disseminationMean"/>
-        <Class IRI="#ProcessOrTechnique"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="#disseminationMean"/>
-        <Class IRI="#Product"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="#disseminationMean"/>
-        <Class IRI="#PublishedArticle"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="#disseminationMean"/>
-        <Class IRI="#ShortCourse"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="#disseminationMean"/>
-        <Class IRI="#Talk"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="#disseminationMean"/>
-        <Class IRI="#TechnicalWork"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="#disseminationMean"/>
-        <Class IRI="#TechnologicalExtension"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="#disseminationMean"/>
-        <Class IRI="#Translation"/>
+        <ObjectUnionOf>
+            <Class IRI="http://swrc.ontoware.org/ontology#Book"/>
+            <Class IRI="http://swrc.ontoware.org/ontology#InBook"/>
+            <Class IRI="http://swrc.ontoware.org/ontology#InProceedings"/>
+            <Class IRI="http://swrc.ontoware.org/ontology#Misc"/>
+            <Class IRI="#AdviceOrConsultancy"/>
+            <Class IRI="#ArtisticOrCulturalProduction"/>
+            <Class IRI="#Courseware"/>
+            <Class IRI="#Editing"/>
+            <Class IRI="#OtherPublication"/>
+            <Class IRI="#PaperPresentation"/>
+            <Class IRI="#ProcessOrTechnique"/>
+            <Class IRI="#Product"/>
+            <Class IRI="#PublishedArticle"/>
+            <Class IRI="#ShortCourse"/>
+            <Class IRI="#Talk"/>
+            <Class IRI="#TechnicalWork"/>
+            <Class IRI="#TechnologicalExtension"/>
+        </ObjectUnionOf>
     </DataPropertyDomain>
     <DataPropertyDomain>
         <DataProperty IRI="#doctoralType"/>
@@ -2064,47 +1712,24 @@
     </DataPropertyDomain>
     <DataPropertyDomain>
         <DataProperty IRI="#doi"/>
-        <Class IRI="http://swrc.ontoware.org/ontology#Article"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="#doi"/>
-        <Class IRI="http://swrc.ontoware.org/ontology#Book"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="#doi"/>
-        <Class IRI="http://swrc.ontoware.org/ontology#InBook"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="#doi"/>
-        <Class IRI="http://swrc.ontoware.org/ontology#InProceedings"/>
+        <ObjectUnionOf>
+            <Class IRI="http://swrc.ontoware.org/ontology#Article"/>
+            <Class IRI="http://swrc.ontoware.org/ontology#Book"/>
+            <Class IRI="http://swrc.ontoware.org/ontology#InBook"/>
+            <Class IRI="http://swrc.ontoware.org/ontology#InProceedings"/>
+        </ObjectUnionOf>
     </DataPropertyDomain>
     <DataPropertyDomain>
         <DataProperty IRI="#duration"/>
-        <Class IRI="#AdviceOrConsultancy"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="#duration"/>
-        <Class IRI="#Music"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="#duration"/>
-        <Class IRI="#OtherArtisticalOrCulturalProductions"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="#duration"/>
-        <Class IRI="#PerformingArts"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="#duration"/>
-        <Class IRI="#ShortCourse"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="#duration"/>
-        <Class IRI="#TechnicalWork"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="#duration"/>
-        <Class IRI="#TechnologicalExtension"/>
+        <ObjectUnionOf>
+            <Class IRI="#AdviceOrConsultancy"/>
+            <Class IRI="#Music"/>
+            <Class IRI="#OtherArtisticalOrCulturalProductions"/>
+            <Class IRI="#PerformingArts"/>
+            <Class IRI="#ShortCourse"/>
+            <Class IRI="#TechnicalWork"/>
+            <Class IRI="#TechnologicalExtension"/>
+        </ObjectUnionOf>
     </DataPropertyDomain>
     <DataPropertyDomain>
         <DataProperty IRI="#durationUnit"/>
@@ -2112,91 +1737,35 @@
     </DataPropertyDomain>
     <DataPropertyDomain>
         <DataProperty IRI="#edition"/>
-        <Class IRI="http://swrc.ontoware.org/ontology#Book"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="#edition"/>
-        <Class IRI="http://swrc.ontoware.org/ontology#InBook"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="#edition"/>
-        <Class IRI="#Afterword"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="#edition"/>
-        <Class IRI="#Foreword"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="#edition"/>
-        <Class IRI="#Translation"/>
+        <ObjectUnionOf>
+            <Class IRI="http://swrc.ontoware.org/ontology#Book"/>
+            <Class IRI="http://swrc.ontoware.org/ontology#InBook"/>
+            <Class IRI="#Afterword"/>
+            <Class IRI="#Foreword"/>
+            <Class IRI="#Translation"/>
+        </ObjectUnionOf>
     </DataPropertyDomain>
     <DataPropertyDomain>
         <DataProperty IRI="#educationAndCTPopularization"/>
-        <Class IRI="http://swrc.ontoware.org/ontology#Article"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="#educationAndCTPopularization"/>
-        <Class IRI="http://swrc.ontoware.org/ontology#Book"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="#educationAndCTPopularization"/>
-        <Class IRI="http://swrc.ontoware.org/ontology#InBook"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="#educationAndCTPopularization"/>
-        <Class IRI="http://swrc.ontoware.org/ontology#InProceedings"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="#educationAndCTPopularization"/>
-        <Class IRI="#Afterword"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="#educationAndCTPopularization"/>
-        <Class IRI="#ArtisticOrCulturalProduction"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="#educationAndCTPopularization"/>
-        <Class IRI="#Courseware"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="#educationAndCTPopularization"/>
-        <Class IRI="#Foreword"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="#educationAndCTPopularization"/>
-        <Class IRI="#Magazine"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="#educationAndCTPopularization"/>
-        <Class IRI="#MusicalScore"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="#educationAndCTPopularization"/>
-        <Class IRI="#OtherPublication"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="#educationAndCTPopularization"/>
-        <Class IRI="#OtherTechnicalPublication"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="#educationAndCTPopularization"/>
-        <Class IRI="#PaperPresentation"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="#educationAndCTPopularization"/>
-        <Class IRI="#ShortCourse"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="#educationAndCTPopularization"/>
-        <Class IRI="#Talk"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="#educationAndCTPopularization"/>
-        <Class IRI="#Translation"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="#educationAndCTPopularization"/>
-        <Class IRI="#UnregisteredSoftware"/>
+        <ObjectUnionOf>
+            <Class IRI="http://swrc.ontoware.org/ontology#Article"/>
+            <Class IRI="http://swrc.ontoware.org/ontology#Book"/>
+            <Class IRI="http://swrc.ontoware.org/ontology#InBook"/>
+            <Class IRI="http://swrc.ontoware.org/ontology#InProceedings"/>
+            <Class IRI="#Afterword"/>
+            <Class IRI="#ArtisticOrCulturalProduction"/>
+            <Class IRI="#Courseware"/>
+            <Class IRI="#Foreword"/>
+            <Class IRI="#Magazine"/>
+            <Class IRI="#MusicalScore"/>
+            <Class IRI="#OtherPublication"/>
+            <Class IRI="#OtherTechnicalPublication"/>
+            <Class IRI="#PaperPresentation"/>
+            <Class IRI="#ShortCourse"/>
+            <Class IRI="#Talk"/>
+            <Class IRI="#Translation"/>
+            <Class IRI="#UnregisteredSoftware"/>
+        </ObjectUnionOf>
     </DataPropertyDomain>
     <DataPropertyDomain>
         <DataProperty IRI="#employment"/>
@@ -2211,27 +1780,19 @@
     </DataPropertyDomain>
     <DataPropertyDomain>
         <DataProperty IRI="#endPage"/>
-        <Class IRI="http://swrc.ontoware.org/ontology#InBook"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="#endPage"/>
-        <Class IRI="http://swrc.ontoware.org/ontology#InProceedings"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="#endPage"/>
-        <Class IRI="#Magazine"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="#endPage"/>
-        <Class IRI="#PublishedArticle"/>
+        <ObjectUnionOf>
+            <Class IRI="http://swrc.ontoware.org/ontology#InBook"/>
+            <Class IRI="http://swrc.ontoware.org/ontology#InProceedings"/>
+            <Class IRI="#Magazine"/>
+            <Class IRI="#PublishedArticle"/>
+        </ObjectUnionOf>
     </DataPropertyDomain>
     <DataPropertyDomain>
         <DataProperty IRI="#englishDescription"/>
-        <Class IRI="http://ebiquity.umbc.edu/ontology/project.owl#Project"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="#englishDescription"/>
-        <Class IRI="#Production"/>
+        <ObjectUnionOf>
+            <Class IRI="#Production"/>
+            <Class IRI="http://xmlns.com/foaf/0.1/Project"/>
+        </ObjectUnionOf>
     </DataPropertyDomain>
     <DataPropertyDomain>
         <DataProperty IRI="#englishProjectName"/>
@@ -2262,59 +1823,32 @@
     </DataPropertyDomain>
     <DataPropertyDomain>
         <DataProperty IRI="#fascicle"/>
-        <Class IRI="http://swrc.ontoware.org/ontology#InProceedings"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="#fascicle"/>
-        <Class IRI="#Afterword"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="#fascicle"/>
-        <Class IRI="#Foreword"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="#fascicle"/>
-        <Class IRI="#Translation"/>
+        <ObjectUnionOf>
+            <Class IRI="http://swrc.ontoware.org/ontology#InProceedings"/>
+            <Class IRI="#Afterword"/>
+            <Class IRI="#Foreword"/>
+            <Class IRI="#Translation"/>
+        </ObjectUnionOf>
     </DataPropertyDomain>
     <DataPropertyDomain>
         <DataProperty IRI="#finality"/>
-        <Class IRI="#AdviceOrConsultancy"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="#finality"/>
-        <Class IRI="#Courseware"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="#finality"/>
-        <Class IRI="#OtherTechnicalPublication"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="#finality"/>
-        <Class IRI="#ProcessOrTechnique"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="#finality"/>
-        <Class IRI="#Product"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="#finality"/>
-        <Class IRI="#TechnicalWork"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="#finality"/>
-        <Class IRI="#TechnologicalExtension"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="#finality"/>
-        <Class IRI="#UnregisteredSoftware"/>
+        <ObjectUnionOf>
+            <Class IRI="#AdviceOrConsultancy"/>
+            <Class IRI="#Courseware"/>
+            <Class IRI="#OtherTechnicalPublication"/>
+            <Class IRI="#ProcessOrTechnique"/>
+            <Class IRI="#Product"/>
+            <Class IRI="#TechnicalWork"/>
+            <Class IRI="#TechnologicalExtension"/>
+            <Class IRI="#UnregisteredSoftware"/>
+        </ObjectUnionOf>
     </DataPropertyDomain>
     <DataPropertyDomain>
         <DataProperty IRI="#generalType"/>
-        <Class IRI="#Graduation"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="#generalType"/>
-        <Class IRI="#MastersDegree"/>
+        <ObjectUnionOf>
+            <Class IRI="#Graduation"/>
+            <Class IRI="#MastersDegree"/>
+        </ObjectUnionOf>
     </DataPropertyDomain>
     <DataPropertyDomain>
         <DataProperty IRI="#genuineLanguage"/>
@@ -2330,55 +1864,26 @@
     </DataPropertyDomain>
     <DataPropertyDomain>
         <DataProperty IRI="#hasPotential"/>
-        <Class IRI="#ProcessOrTechnique"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="#hasPotential"/>
-        <Class IRI="#Product"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="#hasPotential"/>
-        <Class IRI="#UnregisteredSoftware"/>
+        <ObjectUnionOf>
+            <Class IRI="#ProcessOrTechnique"/>
+            <Class IRI="#Product"/>
+            <Class IRI="#UnregisteredSoftware"/>
+        </ObjectUnionOf>
     </DataPropertyDomain>
     <DataPropertyDomain>
         <DataProperty IRI="#innovationPotential"/>
-        <Class IRI="#ProcessOrTechnique"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="#innovationPotential"/>
-        <Class IRI="#Product"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="#innovationPotential"/>
-        <Class IRI="#UnregisteredSoftware"/>
+        <ObjectUnionOf>
+            <Class IRI="#ProcessOrTechnique"/>
+            <Class IRI="#Product"/>
+            <Class IRI="#UnregisteredSoftware"/>
+        </ObjectUnionOf>
     </DataPropertyDomain>
     <DataPropertyDomain>
         <DataProperty IRI="#instrumentalTraining"/>
-        <Class IRI="#Music"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="#instrumentalTraining"/>
-        <Class IRI="#MusicalScore"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="#issnOrIsbn"/>
-        <Class IRI="http://swrc.ontoware.org/ontology#Article"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="#issnOrIsbn"/>
-        <Class IRI="http://swrc.ontoware.org/ontology#Book"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="#issnOrIsbn"/>
-        <Class IRI="http://swrc.ontoware.org/ontology#InBook"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="#issnOrIsbn"/>
-        <Class IRI="http://swrc.ontoware.org/ontology#InProceedings"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="#issnOrIsbn"/>
-        <Class IRI="#Magazine"/>
+        <ObjectUnionOf>
+            <Class IRI="#Music"/>
+            <Class IRI="#MusicalScore"/>
+        </ObjectUnionOf>
     </DataPropertyDomain>
     <DataPropertyDomain>
         <DataProperty IRI="#issnOrIsbn"/>
@@ -2386,19 +1891,26 @@
     </DataPropertyDomain>
     <DataPropertyDomain>
         <DataProperty IRI="#issnOrIsbn"/>
-        <Class IRI="#Translation"/>
+        <ObjectUnionOf>
+            <Class IRI="http://swrc.ontoware.org/ontology#Article"/>
+            <Class IRI="http://swrc.ontoware.org/ontology#Book"/>
+            <Class IRI="http://swrc.ontoware.org/ontology#InBook"/>
+            <Class IRI="http://swrc.ontoware.org/ontology#InProceedings"/>
+            <Class IRI="#Magazine"/>
+            <Class IRI="#OtherPublication"/>
+            <Class IRI="#Translation"/>
+        </ObjectUnionOf>
     </DataPropertyDomain>
     <DataPropertyDomain>
         <DataProperty IRI="#issueDate"/>
-        <Class IRI="#IndentityCard"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="#issueDate"/>
-        <Class IRI="#Passport"/>
+        <ObjectUnionOf>
+            <Class IRI="#IdentityCard"/>
+            <Class IRI="#Passport"/>
+        </ObjectUnionOf>
     </DataPropertyDomain>
     <DataPropertyDomain>
         <DataProperty IRI="#issuingAgency"/>
-        <Class IRI="#IndentityCard"/>
+        <Class IRI="#IdentityCard"/>
     </DataPropertyDomain>
     <DataPropertyDomain>
         <DataProperty IRI="#itinerant"/>
@@ -2406,55 +1918,26 @@
     </DataPropertyDomain>
     <DataPropertyDomain>
         <DataProperty IRI="#journalTitle"/>
-        <Class IRI="http://swrc.ontoware.org/ontology#Article"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="#journalTitle"/>
-        <Class IRI="#Magazine"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="#language"/>
-        <Class IRI="#AdviceOrConsultancy"/>
+        <ObjectUnionOf>
+            <Class IRI="http://swrc.ontoware.org/ontology#Article"/>
+            <Class IRI="#Magazine"/>
+        </ObjectUnionOf>
     </DataPropertyDomain>
     <DataPropertyDomain>
         <DataProperty IRI="#language"/>
-        <Class IRI="#ArtisticOrCulturalProduction"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="#language"/>
-        <Class IRI="#BibliographicalProduction"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="#language"/>
-        <Class IRI="#Courseware"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="#language"/>
-        <Class IRI="#Editing"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="#language"/>
-        <Class IRI="#OtherTechnicalPublication"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="#language"/>
-        <Class IRI="#ProcessOrTechnique"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="#language"/>
-        <Class IRI="#Product"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="#language"/>
-        <Class IRI="#ShortCourse"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="#language"/>
-        <Class IRI="#TechnicalWork"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="#language"/>
-        <Class IRI="#TechnologicalExtension"/>
+        <ObjectUnionOf>
+            <Class IRI="#AdviceOrConsultancy"/>
+            <Class IRI="#ArtisticOrCulturalProduction"/>
+            <Class IRI="#BibliographicalProduction"/>
+            <Class IRI="#Courseware"/>
+            <Class IRI="#Editing"/>
+            <Class IRI="#OtherTechnicalPublication"/>
+            <Class IRI="#ProcessOrTechnique"/>
+            <Class IRI="#Product"/>
+            <Class IRI="#ShortCourse"/>
+            <Class IRI="#TechnicalWork"/>
+            <Class IRI="#TechnologicalExtension"/>
+        </ObjectUnionOf>
     </DataPropertyDomain>
     <DataPropertyDomain>
         <DataProperty IRI="#level"/>
@@ -2462,86 +1945,36 @@
     </DataPropertyDomain>
     <DataPropertyDomain>
         <DataProperty IRI="#nature"/>
-        <Class IRI="http://swrc.ontoware.org/ontology#Book"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="#nature"/>
-        <Class IRI="http://swrc.ontoware.org/ontology#InProceedings"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="#nature"/>
-        <Class IRI="#AdviceOrConsultancy"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="#nature"/>
-        <Class IRI="#Afterword"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="#nature"/>
-        <Class IRI="#ArtisticOrCulturalProduction"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="#nature"/>
-        <Class IRI="#Courseware"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="#nature"/>
-        <Class IRI="#Editing"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="#nature"/>
-        <Class IRI="#Foreword"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="#nature"/>
-        <Class IRI="#MusicalScore"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="#nature"/>
-        <Class IRI="#OtherPublication"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="#nature"/>
-        <Class IRI="#OtherTechnicalPublication"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="#nature"/>
-        <Class IRI="#ProcessOrTechnique"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="#nature"/>
-        <Class IRI="#Product"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="#nature"/>
-        <Class IRI="#Talk"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="#nature"/>
-        <Class IRI="#TechnicalWork"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="#nature"/>
-        <Class IRI="#Translation"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="#nature"/>
-        <Class IRI="#UnregisteredSoftware"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="#nature"/>
-        <ObjectSomeValuesFrom>
-            <ObjectProperty IRI="#hasSponsoringInstitution"/>
-            <Class IRI="#SponsoringInstitution"/>
-        </ObjectSomeValuesFrom>
+        <ObjectUnionOf>
+            <Class IRI="http://swrc.ontoware.org/ontology#Book"/>
+            <Class IRI="http://swrc.ontoware.org/ontology#InProceedings"/>
+            <Class IRI="#AdviceOrConsultancy"/>
+            <Class IRI="#Afterword"/>
+            <Class IRI="#ArtisticOrCulturalProduction"/>
+            <Class IRI="#Courseware"/>
+            <Class IRI="#Editing"/>
+            <Class IRI="#Foreword"/>
+            <Class IRI="#MusicalScore"/>
+            <Class IRI="#OtherPublication"/>
+            <Class IRI="#OtherTechnicalPublication"/>
+            <Class IRI="#ProcessOrTechnique"/>
+            <Class IRI="#Product"/>
+            <Class IRI="#Talk"/>
+            <Class IRI="#TechnicalWork"/>
+            <Class IRI="#Translation"/>
+            <Class IRI="#UnregisteredSoftware"/>
+            <ObjectSomeValuesFrom>
+                <ObjectProperty IRI="#hasSponsoringInstitution"/>
+                <Class IRI="#SponsoringInstitution"/>
+            </ObjectSomeValuesFrom>
+        </ObjectUnionOf>
     </DataPropertyDomain>
     <DataPropertyDomain>
         <DataProperty IRI="#obtainingTitle"/>
-        <Class IRI="#FreeTeaching"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="#obtainingTitle"/>
-        <Class IRI="#StrictoSensu"/>
+        <ObjectUnionOf>
+            <Class IRI="#FreeTeaching"/>
+            <Class IRI="#StrictoSensu"/>
+        </ObjectUnionOf>
     </DataPropertyDomain>
     <DataPropertyDomain>
         <DataProperty IRI="#order"/>
@@ -2552,105 +1985,63 @@
     </DataPropertyDomain>
     <DataPropertyDomain>
         <DataProperty IRI="#organizer"/>
-        <Class IRI="http://swrc.ontoware.org/ontology#Book"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="#organizer"/>
-        <Class IRI="http://swrc.ontoware.org/ontology#InBook"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="#originality"/>
-        <Class IRI="#Music"/>
+        <ObjectUnionOf>
+            <Class IRI="http://swrc.ontoware.org/ontology#Book"/>
+            <Class IRI="http://swrc.ontoware.org/ontology#InBook"/>
+        </ObjectUnionOf>
     </DataPropertyDomain>
     <DataPropertyDomain>
         <DataProperty IRI="#originality"/>
-        <Class IRI="#OtherArtisticalOrCulturalProductions"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="#originality"/>
-        <Class IRI="#PerformingArts"/>
+        <ObjectUnionOf>
+            <Class IRI="#Music"/>
+            <Class IRI="#OtherArtisticalOrCulturalProductions"/>
+            <Class IRI="#PerformingArts"/>
+        </ObjectUnionOf>
     </DataPropertyDomain>
     <DataPropertyDomain>
         <DataProperty IRI="#otherInformation"/>
-        <Class IRI="#Production"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="#otherInformation"/>
-        <ObjectSomeValuesFrom>
-            <ObjectProperty IRI="#hasProfessionalTiesWith"/>
-            <Class IRI="http://swrc.ontoware.org/ontology#Organization"/>
-        </ObjectSomeValuesFrom>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="#pageNumber"/>
-        <Class IRI="http://swrc.ontoware.org/ontology#Book"/>
+        <ObjectUnionOf>
+            <Class IRI="#Production"/>
+            <ObjectSomeValuesFrom>
+                <ObjectProperty IRI="#hasProfessionalTiesWith"/>
+                <Class IRI="http://swrc.ontoware.org/ontology#Organization"/>
+            </ObjectSomeValuesFrom>
+        </ObjectUnionOf>
     </DataPropertyDomain>
     <DataPropertyDomain>
         <DataProperty IRI="#pageNumber"/>
-        <Class IRI="http://swrc.ontoware.org/ontology#InBook"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="#pageNumber"/>
-        <Class IRI="#Afterword"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="#pageNumber"/>
-        <Class IRI="#Editing"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="#pageNumber"/>
-        <Class IRI="#Foreword"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="#pageNumber"/>
-        <Class IRI="#MusicalScore"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="#pageNumber"/>
-        <Class IRI="#OtherPublication"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="#pageNumber"/>
-        <Class IRI="#TechnicalWork"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="#pageNumber"/>
-        <Class IRI="#Translation"/>
+        <ObjectUnionOf>
+            <Class IRI="http://swrc.ontoware.org/ontology#Book"/>
+            <Class IRI="http://swrc.ontoware.org/ontology#InBook"/>
+            <Class IRI="#Afterword"/>
+            <Class IRI="#Editing"/>
+            <Class IRI="#Foreword"/>
+            <Class IRI="#MusicalScore"/>
+            <Class IRI="#OtherPublication"/>
+            <Class IRI="#TechnicalWork"/>
+            <Class IRI="#Translation"/>
+        </ObjectUnionOf>
     </DataPropertyDomain>
     <DataPropertyDomain>
         <DataProperty IRI="#period"/>
-        <Class IRI="http://ebiquity.umbc.edu/ontology/project.owl#Project"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="#period"/>
-        <Class IRI="#AcademicDegree"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="#period"/>
-        <Class IRI="#PostDoctoral"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="#period"/>
-        <ObjectSomeValuesFrom>
-            <ObjectProperty IRI="#hasProfessionalTiesWith"/>
-            <Class IRI="http://swrc.ontoware.org/ontology#Organization"/>
-        </ObjectSomeValuesFrom>
+        <ObjectUnionOf>
+            <Class IRI="#AcademicDegree"/>
+            <Class IRI="#PostDoctoral"/>
+            <Class IRI="http://xmlns.com/foaf/0.1/Project"/>
+            <ObjectSomeValuesFrom>
+                <ObjectProperty IRI="#hasProfessionalTiesWith"/>
+                <Class IRI="http://swrc.ontoware.org/ontology#Organization"/>
+            </ObjectSomeValuesFrom>
+        </ObjectUnionOf>
     </DataPropertyDomain>
     <DataPropertyDomain>
         <DataProperty IRI="#place"/>
-        <Class IRI="http://swrc.ontoware.org/ontology#Event"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="#place"/>
-        <Class IRI="#ArtisticOrCulturalProduction"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="#place"/>
-        <Class IRI="#OtherTechnicalPublication"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="#place"/>
-        <Class IRI="#ShortCourse"/>
+        <ObjectUnionOf>
+            <Class IRI="http://swrc.ontoware.org/ontology#Event"/>
+            <Class IRI="#ArtisticOrCulturalProduction"/>
+            <Class IRI="#OtherTechnicalPublication"/>
+            <Class IRI="#ShortCourse"/>
+        </ObjectUnionOf>
     </DataPropertyDomain>
     <DataPropertyDomain>
         <DataProperty IRI="#productionType"/>
@@ -2720,43 +2111,25 @@
     </DataPropertyDomain>
     <DataPropertyDomain>
         <DataProperty IRI="#publisher"/>
-        <Class IRI="http://swrc.ontoware.org/ontology#Book"/>
+        <ObjectUnionOf>
+            <Class IRI="http://swrc.ontoware.org/ontology#Book"/>
+            <Class IRI="http://swrc.ontoware.org/ontology#InBook"/>
+            <Class IRI="http://swrc.ontoware.org/ontology#InProceedings"/>
+            <Class IRI="#Afterword"/>
+            <Class IRI="#Editing"/>
+            <Class IRI="#Foreword"/>
+            <Class IRI="#MusicalScore"/>
+            <Class IRI="#OtherPublication"/>
+            <Class IRI="#Translation"/>
+        </ObjectUnionOf>
     </DataPropertyDomain>
     <DataPropertyDomain>
-        <DataProperty IRI="#publisher"/>
-        <Class IRI="http://swrc.ontoware.org/ontology#InBook"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="#publisher"/>
-        <Class IRI="http://swrc.ontoware.org/ontology#InProceedings"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="#publisher"/>
-        <Class IRI="#Afterword"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="#publisher"/>
-        <Class IRI="#Editing"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="#publisher"/>
-        <Class IRI="#Foreword"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="#publisher"/>
-        <Class IRI="#MusicalScore"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="#publisher"/>
-        <Class IRI="#OtherPublication"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="#publisher"/>
-        <Class IRI="#Translation"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="#registrationNumber"/>
-        <Class IRI="#MedicResidency"/>
+        <DataProperty IRI="#referenceWork"/>
+        <ObjectUnionOf>
+            <Class IRI="#Music"/>
+            <Class IRI="#OtherArtisticalOrCulturalProductions"/>
+            <Class IRI="#PerformingArts"/>
+        </ObjectUnionOf>
     </DataPropertyDomain>
     <DataPropertyDomain>
         <DataProperty IRI="#researchCompanyCooperationProject"/>
@@ -2775,23 +2148,13 @@
     </DataPropertyDomain>
     <DataPropertyDomain>
         <DataProperty IRI="#scholarship"/>
-        <Class IRI="#Graduation"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="#scholarship"/>
-        <Class IRI="#LatoSensu"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="#scholarship"/>
-        <Class IRI="#PostDoctoral"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="#scholarship"/>
-        <Class IRI="#StrictoSensu"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="#scholarship"/>
-        <Class IRI="#TecnicalCollege"/>
+        <ObjectUnionOf>
+            <Class IRI="#Graduation"/>
+            <Class IRI="#LatoSensu"/>
+            <Class IRI="#PostDoctoral"/>
+            <Class IRI="#StrictoSensu"/>
+            <Class IRI="#TechnicalCollege"/>
+        </ObjectUnionOf>
     </DataPropertyDomain>
     <DataPropertyDomain>
         <DataProperty IRI="#season"/>
@@ -2811,31 +2174,20 @@
     </DataPropertyDomain>
     <DataPropertyDomain>
         <DataProperty IRI="#startDate"/>
-        <Class IRI="#Music"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="#startDate"/>
-        <Class IRI="#OtherArtisticalOrCulturalProductions"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="#startDate"/>
-        <Class IRI="#PerformingArts"/>
+        <ObjectUnionOf>
+            <Class IRI="#Music"/>
+            <Class IRI="#OtherArtisticalOrCulturalProductions"/>
+            <Class IRI="#PerformingArts"/>
+        </ObjectUnionOf>
     </DataPropertyDomain>
     <DataPropertyDomain>
         <DataProperty IRI="#startPage"/>
-        <Class IRI="http://swrc.ontoware.org/ontology#InBook"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="#startPage"/>
-        <Class IRI="http://swrc.ontoware.org/ontology#InProceedings"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="#startPage"/>
-        <Class IRI="#Magazine"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="#startPage"/>
-        <Class IRI="#PublishedArticle"/>
+        <ObjectUnionOf>
+            <Class IRI="http://swrc.ontoware.org/ontology#InBook"/>
+            <Class IRI="http://swrc.ontoware.org/ontology#InProceedings"/>
+            <Class IRI="#Magazine"/>
+            <Class IRI="#PublishedArticle"/>
+        </ObjectUnionOf>
     </DataPropertyDomain>
     <DataPropertyDomain>
         <DataProperty IRI="#tieType"/>
@@ -2845,95 +2197,46 @@
         </ObjectSomeValuesFrom>
     </DataPropertyDomain>
     <DataPropertyDomain>
-        <DataProperty IRI="#titleOfReferenceWork"/>
-        <Class IRI="#Music"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="#titleOfReferenceWork"/>
-        <Class IRI="#OtherArtisticalOrCulturalProductions"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="#titleOfReferenceWork"/>
-        <Class IRI="#PerformingArts"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
         <DataProperty IRI="#top5"/>
         <Class IRI="#Production"/>
     </DataPropertyDomain>
     <DataPropertyDomain>
         <DataProperty IRI="#uf"/>
-        <Class IRI="http://swrc.ontoware.org/ontology#Organization"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="#uf"/>
-        <Class IRI="#Address"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="#uf"/>
-        <Class IRI="#BornData"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="#uf"/>
-        <Class IRI="#IndentityCard"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="#workload"/>
-        <Class IRI="#AdditionalTraining"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="#workload"/>
-        <Class IRI="#Improvement"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="#workload"/>
-        <Class IRI="#Specialization"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="#workload"/>
-        <ObjectSomeValuesFrom>
-            <ObjectProperty IRI="#hasProfessionalTiesWith"/>
+        <ObjectUnionOf>
             <Class IRI="http://swrc.ontoware.org/ontology#Organization"/>
-        </ObjectSomeValuesFrom>
+            <Class IRI="#Address"/>
+            <Class IRI="#BornData"/>
+            <Class IRI="#IdentityCard"/>
+        </ObjectUnionOf>
     </DataPropertyDomain>
     <DataPropertyDomain>
-        <DataProperty IRI="#yearOfReferenceWork"/>
-        <Class IRI="#Music"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="#yearOfReferenceWork"/>
-        <Class IRI="#OtherArtisticalOrCulturalProductions"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="#yearOfReferenceWork"/>
-        <Class IRI="#PerformingArts"/>
+        <DataProperty IRI="#workload"/>
+        <ObjectUnionOf>
+            <Class IRI="#AdditionalTraining"/>
+            <Class IRI="#Improvement"/>
+            <Class IRI="#Specialization"/>
+            <ObjectSomeValuesFrom>
+                <ObjectProperty IRI="#hasProfessionalTiesWith"/>
+                <Class IRI="http://swrc.ontoware.org/ontology#Organization"/>
+            </ObjectSomeValuesFrom>
+        </ObjectUnionOf>
     </DataPropertyDomain>
     <DataPropertyDomain>
         <DataProperty IRI="http://xmlns.com/foaf/0.1/name"/>
-        <Class IRI="http://ebiquity.umbc.edu/ontology/person.owl#Person"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="http://xmlns.com/foaf/0.1/name"/>
-        <Class IRI="http://swrc.ontoware.org/ontology#Organization"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="http://xmlns.com/foaf/0.1/title"/>
-        <Class IRI="#FreeTeaching"/>
+        <ObjectUnionOf>
+            <Class IRI="http://xmlns.com/foaf/0.1/Organization"/>
+            <Class IRI="http://xmlns.com/foaf/0.1/Person"/>
+        </ObjectUnionOf>
     </DataPropertyDomain>
     <DataPropertyDomain>
         <DataProperty IRI="http://xmlns.com/foaf/0.1/title"/>
-        <Class IRI="#Graduation"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="http://xmlns.com/foaf/0.1/title"/>
-        <Class IRI="#Improvement"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="http://xmlns.com/foaf/0.1/title"/>
-        <Class IRI="#Specialization"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="http://xmlns.com/foaf/0.1/title"/>
-        <Class IRI="#StrictoSensu"/>
+        <ObjectUnionOf>
+            <Class IRI="#FreeTeaching"/>
+            <Class IRI="#Graduation"/>
+            <Class IRI="#Improvement"/>
+            <Class IRI="#Specialization"/>
+            <Class IRI="#StrictoSensu"/>
+        </ObjectUnionOf>
     </DataPropertyDomain>
     <DataPropertyRange>
         <DataProperty IRI="http://swrc.ontoware.org/ontology#homepage"/>
@@ -2973,14 +2276,6 @@
     </DataPropertyRange>
     <DataPropertyRange>
         <DataProperty IRI="#authorOfReferenceWork"/>
-        <Datatype abbreviatedIRI="xsd:string"/>
-    </DataPropertyRange>
-    <DataPropertyRange>
-        <DataProperty IRI="#authorOrEditor"/>
-        <Datatype abbreviatedIRI="xsd:string"/>
-    </DataPropertyRange>
-    <DataPropertyRange>
-        <DataProperty IRI="#authorParticipation"/>
         <Datatype abbreviatedIRI="xsd:string"/>
     </DataPropertyRange>
     <DataPropertyRange>
@@ -3183,6 +2478,10 @@
         <Datatype abbreviatedIRI="xsd:string"/>
     </DataPropertyRange>
     <DataPropertyRange>
+        <DataProperty IRI="#language"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
         <DataProperty IRI="#level"/>
         <DataOneOf>
             <Literal datatypeIRI="&rdf;PlainLiteral">mba</Literal>
@@ -3364,9 +2663,17 @@
         <DataProperty IRI="http://xmlns.com/foaf/0.1/title"/>
         <Datatype abbreviatedIRI="xsd:string"/>
     </DataPropertyRange>
+    <DisjointDataProperties>
+        <DataProperty IRI="#bookType"/>
+        <DataProperty IRI="#doctoralType"/>
+        <DataProperty IRI="#generalType"/>
+        <DataProperty IRI="#productionType"/>
+        <DataProperty IRI="#projectType"/>
+        <DataProperty IRI="#tieType"/>
+    </DisjointDataProperties>
 </Ontology>
 
 
 
-<!-- Generated by the OWL API (version 3.5.0) http://owlapi.sourceforge.net -->
+<!-- Generated by the OWL API (version 3.4.2) http://owlapi.sourceforge.net -->
 
