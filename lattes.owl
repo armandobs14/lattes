@@ -187,6 +187,9 @@
         <Class IRI="#PublishedArticle"/>
     </Declaration>
     <Declaration>
+        <Class IRI="#Publisher"/>
+    </Declaration>
+    <Declaration>
         <Class IRI="#Records"/>
     </Declaration>
     <Declaration>
@@ -274,6 +277,9 @@
         <ObjectProperty IRI="#hasAuthor"/>
     </Declaration>
     <Declaration>
+        <ObjectProperty IRI="#hasAuthorParticipation"/>
+    </Declaration>
+    <Declaration>
         <ObjectProperty IRI="#hasCourse"/>
     </Declaration>
     <Declaration>
@@ -338,9 +344,6 @@
     </Declaration>
     <Declaration>
         <DataProperty IRI="#authorOfReferenceWork"/>
-    </Declaration>
-    <Declaration>
-        <DataProperty IRI="#authorParticipation"/>
     </Declaration>
     <Declaration>
         <DataProperty IRI="#availability"/>
@@ -886,6 +889,10 @@
         <Class IRI="http://swrc.ontoware.org/ontology#Article"/>
     </SubClassOf>
     <SubClassOf>
+        <Class IRI="#Publisher"/>
+        <Class IRI="http://swrc.ontoware.org/ontology#Organization"/>
+    </SubClassOf>
+    <SubClassOf>
         <Class IRI="#RegisteredSoftware"/>
         <Class IRI="#Records"/>
     </SubClassOf>
@@ -1012,6 +1019,10 @@
         <ObjectProperty IRI="#hasSupervisor"/>
     </SubObjectPropertyOf>
     <SubObjectPropertyOf>
+        <ObjectProperty IRI="#hasAuthorParticipation"/>
+        <ObjectProperty IRI="http://swrc.ontoware.org/ontology#author"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
         <ObjectProperty IRI="#hasProfessionalAddress"/>
         <ObjectProperty IRI="#hasAddress"/>
     </SubObjectPropertyOf>
@@ -1019,6 +1030,32 @@
         <ObjectProperty IRI="#hasResidentialAddress"/>
         <ObjectProperty IRI="#hasAddress"/>
     </SubObjectPropertyOf>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="http://swrc.ontoware.org/ontology#editor"/>
+        <ObjectUnionOf>
+            <Class IRI="http://swrc.ontoware.org/ontology#Book"/>
+            <Class IRI="http://swrc.ontoware.org/ontology#InBook"/>
+            <Class IRI="#Afterword"/>
+            <Class IRI="#Foreword"/>
+            <Class IRI="#Production"/>
+            <Class IRI="#Translation"/>
+        </ObjectUnionOf>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="http://swrc.ontoware.org/ontology#publication"/>
+        <ObjectUnionOf>
+            <Class IRI="http://swrc.ontoware.org/ontology#Organization"/>
+            <Class IRI="#Researcher"/>
+        </ObjectUnionOf>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="http://swrc.ontoware.org/ontology#publisher"/>
+        <Class IRI="http://swrc.ontoware.org/ontology#Publication"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="http://swrc.ontoware.org/ontology#publishes"/>
+        <Class IRI="#Publisher"/>
+    </ObjectPropertyDomain>
     <ObjectPropertyDomain>
         <ObjectProperty IRI="#haCoSupervisor"/>
         <Class IRI="#Graduation"/>
@@ -1044,6 +1081,13 @@
             <Class IRI="#Foreword"/>
             <Class IRI="#Production"/>
             <Class IRI="#Translation"/>
+        </ObjectUnionOf>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasAuthorParticipation"/>
+        <ObjectUnionOf>
+            <Class IRI="#ArtisticOrCulturalProduction"/>
+            <Class IRI="#ShortCourse"/>
         </ObjectUnionOf>
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
@@ -1167,6 +1211,22 @@
         <Class IRI="http://swrc.ontoware.org/ontology#TechnicalReport"/>
     </ObjectPropertyDomain>
     <ObjectPropertyRange>
+        <ObjectProperty IRI="http://swrc.ontoware.org/ontology#editor"/>
+        <Class IRI="#Researcher"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="http://swrc.ontoware.org/ontology#publication"/>
+        <Class IRI="http://swrc.ontoware.org/ontology#Publication"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="http://swrc.ontoware.org/ontology#publisher"/>
+        <Class IRI="#Publisher"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="http://swrc.ontoware.org/ontology#publishes"/>
+        <Class IRI="http://swrc.ontoware.org/ontology#Publication"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
         <ObjectProperty IRI="#haCoSupervisor"/>
         <Class IRI="#Researcher"/>
     </ObjectPropertyRange>
@@ -1176,6 +1236,10 @@
     </ObjectPropertyRange>
     <ObjectPropertyRange>
         <ObjectProperty IRI="#hasAuthor"/>
+        <Class IRI="#Researcher"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasAuthorParticipation"/>
         <Class IRI="#Researcher"/>
     </ObjectPropertyRange>
     <ObjectPropertyRange>
@@ -1572,13 +1636,6 @@
     <DataPropertyDomain>
         <DataProperty IRI="#annalsTitle"/>
         <Class IRI="http://swrc.ontoware.org/ontology#InProceedings"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="#authorParticipation"/>
-        <ObjectUnionOf>
-            <Class IRI="#ArtisticOrCulturalProduction"/>
-            <Class IRI="#ShortCourse"/>
-        </ObjectUnionOf>
     </DataPropertyDomain>
     <DataPropertyDomain>
         <DataProperty IRI="#availability"/>
